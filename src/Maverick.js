@@ -40,6 +40,7 @@ function Basic(props) {
   };
 
   const removeAll = () => {
+    setShowImages(false);
     setMyFiles([]);
   };
 
@@ -59,6 +60,8 @@ function Basic(props) {
   const mappedImages = myFiles.map((e, index) => {
     return <img key={index} src={URL.createObjectURL(e)} alt={e.name} />;
   });
+
+  const show = () => setShowImages(true);
 
   console.log(myFiles.sort((a, b) => a["name"] - b["name"]));
   return (
@@ -80,7 +83,7 @@ function Basic(props) {
         <div>
           <button onClick={removeAll}>Remove All</button>
           <br />
-          <button onClick={() => setShowImages(true)}>Save/View</button>
+          <button onClick={show}>Save/View</button>
         </div>
       )}
     </section>
